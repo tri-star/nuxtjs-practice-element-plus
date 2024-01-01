@@ -1,4 +1,15 @@
-// https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  devtools: { enabled: true }
+  srcDir: 'src',
+  devtools: { enabled: true },
+  css: ['assets/common.css'],
+  typescript: {
+    strict: true,
+    tsConfig: {
+      include: ['.eslintrc.cjs'],
+      compilerOptions: {
+        types: ['element-plus/global'],
+      },
+    },
+  },
+  modules: ['@element-plus/nuxt'],
 })

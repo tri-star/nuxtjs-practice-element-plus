@@ -1,5 +1,10 @@
+<script setup lang="ts">
+import { NuxtLayout } from '#build/components'
+// import 'assets/common.css'
+</script>
+
 <template>
-  <div>
-    <NuxtWelcome />
-  </div>
+  <NuxtLayout>
+    <NuxtPage />
+  </NuxtLayout>
 </template>

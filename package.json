@@ -21,5 +21,9 @@
     "typescript": "^5.3.3",
     "vue": "^3.4.3",
     "vue-router": "^4.2.5"
+  },
+  "dependencies": {
+    "@element-plus/nuxt": "^1.0.7",
+    "element-plus": "^2.4.4"
   }
 }
