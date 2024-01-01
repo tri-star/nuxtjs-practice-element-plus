@@ -11,5 +11,5 @@ export default defineNuxtConfig({
       },
     },
   },
-  modules: ['@element-plus/nuxt'],
+  modules: ['@element-plus/nuxt', '@nuxtjs/tailwindcss'],
 })
