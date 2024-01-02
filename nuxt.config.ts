@@ -5,7 +5,7 @@ export default defineNuxtConfig({
   typescript: {
     strict: true,
     tsConfig: {
-      include: ['.eslintrc.cjs'],
+      include: ['../.eslintrc.cjs'],
       compilerOptions: {
         types: ['element-plus/global'],
       },
