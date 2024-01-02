@@ -12,4 +12,17 @@ export default defineNuxtConfig({
     },
   },
   modules: ['@element-plus/nuxt', '@nuxtjs/tailwindcss'],
+  vite: {
+    css: {
+      preprocessorOptions: {
+        scss: {
+          additionalData: `@use "@/assets/element.scss" as element;`,
+        },
+      },
+    },
+  },
+  elementPlus: {
+    icon: 'ElIcon',
+    importStyle: 'scss',
+  },
 })
