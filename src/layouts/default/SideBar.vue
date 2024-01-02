@@ -3,11 +3,11 @@
     <ElCol>
       <ElMenu>
         <ElMenuItem>
-          <ElIcon><Location /></ElIcon>
+          <ElIcon><ElIconHouse /></ElIcon>
           <span>Menu1</span>
         </ElMenuItem>
         <ElMenuItem>
-          <ElIcon><Location /></ElIcon>
+          <ElIcon><ElIconUser /></ElIcon>
           <span>Menu2</span>
         </ElMenuItem>
       </ElMenu>
