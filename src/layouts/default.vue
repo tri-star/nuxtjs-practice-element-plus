@@ -1,3 +1,7 @@
+<script setup lang="ts">
+import SideBar from '@/layouts/default/SideBar.vue'
+</script>
+
 <template>
   <ElContainer class="flex min-h-full h-full bg-gray-200">
     <ElHeader
@@ -5,15 +9,15 @@
       ><h1 class="text-2xl">LOGO</h1>
     </ElHeader>
     <ElContainer class="flex h-full">
-      <ElAside class="bg-blue-50" width="200px">Aside</ElAside>
+      <ElAside class="bg-white" style="padding-top: var(--header-height)"><SideBar /></ElAside>
       <ElContainer class="h-full flex justify-center">
-        <ElContainer class="w-8/12 h-full" style="margin-left: var(--sidebar-width); padding-top: var(--header-height)">
+        <div class="w-8/12 h-full" style="padding-top: var(--header-height)">
           <ElMain class="h-full flex justify-center flex-col">
             <ElContainer class="h-full bg-white p-5">
               <slot />
             </ElContainer>
           </ElMain>
-        </ElContainer>
+        </div>
       </ElContainer>
     </ElContainer>
   </ElContainer>
