@@ -1,14 +1,20 @@
+<script setup lang="ts"></script>
+
 <template>
   <ElRow class="fixed">
     <ElCol>
-      <ElMenu>
-        <ElMenuItem>
-          <ElIcon><ElIconHouse /></ElIcon>
-          <span>Menu1</span>
+      <ElMenu :router="true">
+        <ElMenuItem index="/">
+          <NuxtLink to="/">
+            <ElIcon><ElIconHouse /></ElIcon>
+            <span>ダッシュボード</span>
+          </NuxtLink>
         </ElMenuItem>
-        <ElMenuItem>
-          <ElIcon><ElIconUser /></ElIcon>
-          <span>Menu2</span>
+        <ElMenuItem index="/users">
+          <NuxtLink to="/users">
+            <ElIcon><ElIconUser /></ElIcon>
+            <span>ユーザー管理</span>
+          </NuxtLink>
         </ElMenuItem>
       </ElMenu>
     </ElCol>

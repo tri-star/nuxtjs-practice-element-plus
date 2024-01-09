@@ -25,4 +25,10 @@ export default defineNuxtConfig({
     icon: 'ElIcon',
     importStyle: 'scss',
   },
+  runtimeConfig: {
+    API_HOST: '',
+  },
+  routeRules: {
+    '/users/**': { ssr: false },
+  },
 })
