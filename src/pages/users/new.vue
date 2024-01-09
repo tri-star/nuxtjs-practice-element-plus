@@ -1,7 +1,8 @@
 <script setup lang="ts">
-import { useForm, type ValidationError } from '@tanstack/vue-form'
+import { useForm } from '@tanstack/vue-form'
 import { zodValidator } from '@tanstack/zod-form-adapter'
 import { newUserFormSchema } from '~/domain/users/user'
+import { retrieveChangeEventValue, toErrorString } from '~/utils/form-utils'
 
 const router = useRouter()
 
@@ -18,17 +19,6 @@ const form = useForm({
 })
 
 form.provideFormContext()
-
-function retrieveChangeEventValue(e: unknown) {
-  return ((e as Event).target as HTMLInputElement | null)?.value ?? ''
-}
-
-function toErrorString(errors: ValidationError[] | undefined) {
-  if (errors == null) {
-    return ''
-  }
-  return errors.join('<br/>')
-}
 
 function handleCancel() {
   router.go(-1)
