@@ -79,10 +79,10 @@ function handleCancel() {
           </ElFormItem>
         </template>
       </form.Field>
-      <ElFormItem>
+      <div class="flex justify-center">
         <ElButton type="primary" @click="form.handleSubmit">登録</ElButton>
         <ElButton type="default" @click="handleCancel">キャンセル</ElButton>
-      </ElFormItem>
+      </div>
     </ElForm>
   </div>
 </template>
