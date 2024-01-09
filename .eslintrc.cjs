@@ -28,7 +28,7 @@ module.exports = {
       'PascalCase',
       {
         registeredComponentsOnly: false,
-        ignores: [],
+        ignores: ['form.Field'],
       },
     ],
     'vue/multi-word-component-names': ['off'],
@@ -36,5 +36,6 @@ module.exports = {
 
     '@typescript-eslint/require-await': 'off', // インターフェースでawaitが必要だが実装では必要としないケースがあるためoff
     '@typescript-eslint/consistent-type-assertions': 'off', // as で型を指定したいことがあるためoff
+    '@typescript-eslint/explicit-function-return-type': 'off', // composableの中など書ききれないときがあるのでoff
   },
 }
