@@ -11,6 +11,12 @@ export default defineNuxtConfig({
       },
     },
   },
+  components: [
+    {
+      path: '~/components',
+      pathPrefix: false,
+    },
+  ],
   modules: ['@element-plus/nuxt', '@nuxtjs/tailwindcss'],
   vite: {
     css: {

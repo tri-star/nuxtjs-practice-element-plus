@@ -31,8 +31,7 @@ function handleCancel() {
       <form.Field name="name" :validators="{ onChange: newUserFormSchema.shape.name }">
         <template #default="{ field }">
           <ElFormItem label="氏名" :error="toErrorString(field.state.meta.errors)">
-            <input
-              class="border focus:outline focus:outline-blue-300 w-full px-2"
+            <NpInput
               :name="field.name"
               :value="field.state.value"
               @input="(e: Event) => field.handleChange(retrieveChangeEventValue(e))"
@@ -44,8 +43,7 @@ function handleCancel() {
       <form.Field name="email" :validators="{ onChange: newUserFormSchema.shape.email }">
         <template #default="{ field }">
           <ElFormItem label="メールアドレス" :error="toErrorString(field.state.meta.errors)">
-            <input
-              class="border focus:outline focus:outline-blue-300 w-full px-2"
+            <NpInput
               :name="field.name"
               :value="field.state.value"
               @input="(e: Event) => field.handleChange(retrieveChangeEventValue(e))"
@@ -57,8 +55,7 @@ function handleCancel() {
       <form.Field name="password" :validators="{ onChange: newUserFormSchema.shape.password }">
         <template #default="{ field }">
           <ElFormItem label="パスワード" :error="toErrorString(field.state.meta.errors)">
-            <input
-              class="border focus:outline focus:outline-blue-300 w-full px-2"
+            <NpInput
               type="password"
               auto-complete="new-password"
               :name="field.name"
