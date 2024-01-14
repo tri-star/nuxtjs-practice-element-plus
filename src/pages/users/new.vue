@@ -1,10 +1,14 @@
 <script setup lang="ts">
 import { useForm } from '@tanstack/vue-form'
 import { zodValidator } from '@tanstack/zod-form-adapter'
+import { registerUser } from '~/domain/users/api/register-user'
 import { newUserFormSchema } from '~/domain/users/user'
 import { retrieveChangeEventValue, toErrorString } from '~/utils/form-utils'
 
 const router = useRouter()
+
+const isRegisterInpgorgress = ref(false)
+const registerError = ref<string | undefined>(undefined)
 
 const form = useForm({
   defaultValues: {
@@ -13,8 +17,21 @@ const form = useForm({
     password: '',
   },
   validatorAdapter: zodValidator,
-  onSubmit: async ({ value }) => {
-    console.log(value)
+  onSubmit: async ({ value: formData }) => {
+    isRegisterInpgorgress.value = true
+    try {
+      await registerUser(formData)
+      ElMessage({
+        type: 'success',
+        message: 'ユーザーの登録が完了しました。',
+      })
+      router.go(-1)
+    } catch (e) {
+      console.error(e)
+      registerError.value = (e as Error).message
+    } finally {
+      isRegisterInpgorgress.value = false
+    }
   },
 })
 
@@ -67,7 +84,7 @@ function handleCancel() {
         </template>
       </form.Field>
       <div class="flex justify-center">
-        <ElButton type="primary" @click="form.handleSubmit">登録</ElButton>
+        <ElButton type="primary" :loading="isRegisterInpgorgress" @click="form.handleSubmit">登録</ElButton>
         <ElButton type="default" @click="handleCancel">キャンセル</ElButton>
       </div>
     </ElForm>

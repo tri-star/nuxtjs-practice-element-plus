@@ -25,7 +25,7 @@ export const newUserFormSchema = z.object({
     .regex(/[A-Za-z]+/, '英字を含めてください')
     .regex(/[0-9]+/, '数字を含めてください'),
 })
-export type NewUserFormSchema = z.infer<typeof newUserFormSchema>
+export type NewUserForm = z.infer<typeof newUserFormSchema>
 
 export type UserListResponse = {
   data: User[]
