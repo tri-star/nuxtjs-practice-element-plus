@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { useFetchResponse } from '~/composables/use-fetch-response'
 import { fetchUser } from '~/domain/users/api/fetch-user'
+import { formatDate } from '~/utils/date-utils'
 
 const route = useRoute()
 const router = useRouter()
@@ -35,6 +36,14 @@ function handleCancel() {
         <ElFormItem label="会社">
           <p v-if="pending">-</p>
           <p v-else>{{ user?.data.company.name }}</p>
+        </ElFormItem>
+        <ElFormItem label="登録日">
+          <p v-if="pending">-</p>
+          <p v-else>{{ formatDate(user?.data.createdAt) }}</p>
+        </ElFormItem>
+        <ElFormItem label="更新日">
+          <p v-if="pending">-</p>
+          <p v-else>{{ formatDate(user?.data.updatedAt) }}</p>
         </ElFormItem>
         <div class="flex justify-center">
           <ElButton type="default">編集</ElButton>
