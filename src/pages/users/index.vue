@@ -40,7 +40,13 @@ const { data, error, pending } = useFetch<UserListResponse>('/api/users')
           >
             <ElTableColumn type="selection" width="40" />
             <ElTableColumn prop="id" label="ID" min-width="100px" />
-            <ElTableColumn prop="name" label="氏名" />
+            <ElTableColumn prop="name" label="氏名">
+              <template #default="{ row }">
+                <ElLink type="primary" :href="`/users/${row.id}`">
+                  {{ row.name }}
+                </ElLink>
+              </template>
+            </ElTableColumn>
             <ElTableColumn prop="email" label="メールアドレス" min-width="200px" />
             <ElTableColumn prop="createdAt" label="登録日時" min-width="200px">
               <template #default="{ row }">
