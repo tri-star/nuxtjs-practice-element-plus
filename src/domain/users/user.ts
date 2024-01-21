@@ -27,6 +27,16 @@ export const newUserFormSchema = z.object({
 })
 export type NewUserForm = z.infer<typeof newUserFormSchema>
 
+/**
+ * ユーザー編集フォーム用
+ */
+export const editUserFormSchema = z.object({
+  name: z.string().min(1, '氏名を入力してください'),
+  email: z.string().email('無効なメールアドレスです'),
+  companyId: z.string(),
+})
+export type EditUserForm = z.infer<typeof editUserFormSchema>
+
 export type UserListResponse = {
   data: User[]
   count: number

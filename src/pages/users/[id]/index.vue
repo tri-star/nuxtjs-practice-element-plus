@@ -12,6 +12,10 @@ const { isNotFound, isError } = useFetchResponse(data, error)
 
 const user = computed(() => data.value?.data)
 
+async function handleEdit() {
+  await router.push(`/users/${userId}/edit`)
+}
+
 function handleCancel() {
   router.go(-1)
 }
@@ -48,7 +52,7 @@ function handleCancel() {
           <p v-else>{{ formatDate(user?.updatedAt) }}</p>
         </ElFormItem>
         <div class="flex justify-center">
-          <ElButton type="default">編集</ElButton>
+          <ElButton type="default" @click="handleEdit">編集</ElButton>
           <ElButton type="default" @click="handleCancel">キャンセル</ElButton>
         </div>
       </ElForm>

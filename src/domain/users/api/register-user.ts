@@ -4,7 +4,7 @@ export async function registerUser(form: NewUserForm) {
   const config = useRuntimeConfig()
   const apiHost = String(config.public.API_HOST)
 
-  await $fetch(apiHost + '/user', {
+  await $fetch(apiHost + '/users', {
     method: 'POST',
     body: JSON.stringify({
       ...form,
