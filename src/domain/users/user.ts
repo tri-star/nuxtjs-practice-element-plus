@@ -31,3 +31,14 @@ export type UserListResponse = {
   data: User[]
   count: number
 }
+
+/**
+ * ユーザー詳細情報用
+ */
+export const userDetailSchema = userSchema.extend({
+  company: z.object({
+    id: z.string(),
+    name: z.string(),
+  }),
+})
+export type UserDetail = z.infer<typeof userDetailSchema>
